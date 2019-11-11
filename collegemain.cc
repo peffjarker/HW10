@@ -1,8 +1,8 @@
 /******************************************************
-	This is the main for Project 3, which asks you to 
+	This is the main for Project 3, which asks you to
     build a container that holds a list of college courses.
     The courses are always kept in order, so they never need
-    to be sorted since they are always inserted in the order 
+    to be sorted since they are always inserted in the order
     where they go. You will also need the files:
 	course.h
 	course.cc
@@ -10,8 +10,9 @@
     in order to do this project. You will be writing both the .h
     and the .cc file for the container.
 	John Dolan			Spring 2015
-**********************************************************/
+*/
 
+// This function displays the menu and returns the user's choice
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -21,8 +22,8 @@
 
 using namespace std;
 
-// This function displays the menu and returns the user's choice
 int menu();
+
 
 int main(){
     int choice;
@@ -39,7 +40,7 @@ int main(){
 	cout<<"Now Enter Your Full name:";
 	while(cin.peek()=='\n')cin.ignore();
         getline(cin,fullname);
-        // Here you are calling a constructor that takes a string as a 
+        // Here you are calling a constructor that takes a string as a
         // parameter
 	College mycollege(fullname);
         fin.open(filename.c_str());
@@ -55,7 +56,7 @@ int main(){
 		cin>>c;
 		mycollege.add(c);
 		break;
-	    case 2: 
+	    case 2:
 		mycollege.display(cout);
 		break;
 	    case 3:
@@ -115,4 +116,3 @@ int menu(){
 
     return choice;
 }
-

@@ -15,32 +15,32 @@ course::course(){
 }
 
 void course::input(std::istream& ins){
-    if(ins == cin){
-	cout<<"Course Number: ";
-	if(ins.peek() == '\n') ins.ignore();
-    	getline(ins, course_number);
-    	if(ins.eof()) return;
-	cout<<"Grade received: ";
-    	getline(ins, grade);
-	grade[0] = toupper(grade[0]);
-    	if(ins.eof()) return;
- 	cout<<"Credit hours: ";
-    	ins>>hours;
-	upper_course();   // makes all lower case letters into caps
+  if(&ins == &cin) {
+    cout<<"Course Number: ";
+    if(ins.peek() == '\n') ins.ignore();
+    getline(ins, course_number);
+    if(ins.eof()) return;
+    cout<<"Grade received: ";
+    getline(ins, grade);
+    grade[0] = toupper(grade[0]);
+    if(ins.eof()) return;
+      cout<<"Credit hours: ";
+    ins>>hours;
+    upper_course();   // makes all lower case letters into caps
     }
     else{
     	if(ins.peek() == '\n') ins.ignore();
     	getline(ins, course_number);
     	if(ins.eof()) return;
     	getline(ins, grade);
-	grade[0] = toupper(grade[0]);
+	    grade[0] = toupper(grade[0]);
     	if(ins.eof()) return;
     	ins>>hours;
     }
 }
 
 void course::output(std::ostream& outs)const{
-    if(outs == cout){
+    if(&outs == &cout){
 	outs<<"Course Number:"<<course_number<<endl;
 	outs<<"Grade received:"<<grade<<endl;
 	outs<<"Credit hours:"<<setprecision(2)<<hours<<endl;
@@ -60,11 +60,11 @@ double course::get_number_grade()const{
     if(grade == "B") return 3.0;
     if(grade == "B-") return 2.667;
     if(grade == "C+") return 2.333;
-    if(grade == "C") return 2.0; 
+    if(grade == "C") return 2.0;
     if(grade == "C-") return 1.667;
-    if(grade == "D+") return 1.333; 
+    if(grade == "D+") return 1.333;
     if(grade == "D") return 1.0;
-    if(grade == "D-") return 0.667; 
+    if(grade == "D-") return 0.667;
     if(grade == "F") return 0.0;
     else return 0;
 }
